@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أساور | للعطور والهدايا والإكسسوارات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0b0a08;
+    --black2:#161310;
+    --black3:#1f1b16;
+    --gold:#c6a15b;
+    --gold-light:#e8cf9a;
+    --gold-deep:#8a6a34;
+    --ivory:#f4eee0;
+    --muted:rgba(244,238,224,.62);
+    --line:rgba(198,161,91,.28);
+    --radius:2px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--ivory);
+    font-family:'Tajawal',sans-serif;
+    font-weight:400;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Aref Ruqaa',serif;font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  img,svg{display:block;}
+  ::selection{background:var(--gold);color:var(--black);}
+  :focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- ring divider (signature motif) ---------- */
+  .ring-divider{display:flex;align-items:center;gap:14px;margin:0 auto;max-width:1180px;padding:0 24px;}
+  .ring-divider .bar{flex:1;height:1px;background:linear-gradient(to var(--dir,left),transparent,var(--line) 40%,var(--line) 60%,transparent);}
+  .ring-divider svg{flex-shrink:0;}
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(11,10,8,.78);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .brand{display:flex;align-items:center;gap:10px;font-size:1.5rem;letter-spacing:.5px;}
+  .brand svg{width:30px;height:30px;}
+  nav.links{display:flex;gap:28px;font-size:.95rem;}
+  nav.links a{position:relative;padding:4px 0;color:var(--muted);transition:color .25s;}
+  nav.links a:hover,nav.links a.active{color:var(--gold-light);}
+  nav.links a::after{content:'';position:absolute;bottom:-2px;right:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
+  nav.links a:hover::after,nav.links a.active::after{width:100%;}
+  .nav-actions{display:flex;align-items:center;gap:16px;}
+  .icon-btn{position:relative;width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;transition:border-color .25s,transform .25s;}
+  .icon-btn:hover{border-color:var(--gold);transform:translateY(-1px);}
+  .icon-btn svg{width:17px;height:17px;stroke:var(--ivory);}
+  .cart-count{position:absolute;top:-6px;left:-6px;background:var(--gold);color:var(--black);font-size:.65rem;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .menu-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;
+    padding-top:90px;text-align:center;overflow:hidden;
+  }
+  .hero-rings{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.9;}
+  .hero-rings svg{width:min(720px,90vw);height:min(720px,90vw);}
+  .ring-rotate{animation:spin 90s linear infinite;transform-origin:center;}
+  .ring-rotate-rev{animation:spin 70s linear infinite reverse;transform-origin:center;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .hero-content{position:relative;z-index:2;}
+  .eyebrow{font-size:.8rem;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:22px;display:inline-block;}
+  .hero h1{font-size:clamp(3.2rem,10vw,6.4rem);line-height:1;color:var(--ivory);}
+  .hero h1 span{color:var(--gold);}
+  .hero-tag{margin-top:20px;font-size:1.05rem;color:var(--muted);max-width:480px;margin-inline:auto;line-height:1.9;}
+  .hero-actions{margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    padding:14px 34px;font-size:.92rem;letter-spacing:1px;border:1px solid var(--gold);
+    transition:all .3s;position:relative;
+  }
+  .btn-gold{background:var(--gold);color:var(--black);font-weight:700;}
+  .btn-gold:hover{background:var(--gold-light);border-color:var(--gold-light);}
+  .btn-outline{color:var(--ivory);border-color:var(--line);}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold-light);}
+
+  /* ---------- offers ribbon ---------- */
+  .ribbon{background:var(--gold);color:var(--black);padding:11px 0;overflow:hidden;white-space:nowrap;font-weight:700;font-size:.85rem;letter-spacing:1px;}
+  .ribbon-track{display:inline-block;padding-inline-start:100%;animation:marquee 26s linear infinite;}
+  .ribbon-track span{margin-inline-end:48px;}
+  @keyframes marquee{to{transform:translateX(-100%);}}
+
+  section{padding:96px 0;}
+  .section-head{text-align:center;margin-bottom:50px;}
+  .section-head .eyebrow{color:var(--gold-deep);}
+  .section-head h2{font-size:clamp(2.1rem,4vw,3rem);}
+  .section-head p{color:var(--muted);margin-top:10px;font-size:.95rem;}
+
+  /* ---------- category rings ---------- */
+  .cat-tabs{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;}
+  .cat-tab{
+    display:flex;flex-direction:column;align-items:center;gap:10px;padding:6px;width:118px;
+    color:var(--muted);transition:color .25s;
+  }
+  .cat-tab .ring{
+    width:78px;height:78px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;transition:border-color .3s,box-shadow .3s,transform .3s;
+  }
+  .cat-tab svg{width:30px;height:30px;stroke:var(--gold-light);}
+  .cat-tab span{font-size:.85rem;}
+  .cat-tab:hover .ring,.cat-tab.active .ring{border-color:var(--gold);box-shadow:0 0 0 4px rgba(198,161,91,.08);transform:translateY(-3px);}
+  .cat-tab.active{color:var(--gold-light);}
+
+  .subcat-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:34px 0 46px;}
+  .subcat-chip{
+    padding:8px 20px;border:1px solid var(--line);border-radius:30px;font-size:.82rem;color:var(--muted);
+    transition:all .25s;
+  }
+  .subcat-chip:hover,.subcat-chip.active{border-color:var(--gold);color:var(--gold-light);background:rgba(198,161,91,.07);}
+
+  /* ---------- product grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;}
+  .card{
+    background:var(--black2);border:1px solid var(--line);position:relative;overflow:hidden;
+    transition:border-color .3s,transform .3s;
+  }
+  .card:hover{border-color:var(--gold);transform:translateY(-4px);}
+  .card-media{
+    aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 50% 30%,#241f18,var(--black2) 70%);position:relative;
+  }
+  .card-media svg{width:56%;height:56%;stroke:var(--gold-light);}
+  .badge{position:absolute;top:12px;inset-inline-start:12px;background:var(--gold);color:var(--black);font-size:.7rem;font-weight:700;padding:4px 10px;letter-spacing:.5px;}
+  .fav-btn{position:absolute;top:10px;inset-inline-end:10px;width:32px;height:32px;border-radius:50%;background:rgba(11,10,8,.55);display:flex;align-items:center;justify-content:center;border:1px solid var(--line);transition:.25s;}
+  .fav-btn svg{width:14px;height:14px;stroke:var(--ivory);}
+  .fav-btn:hover,.fav-btn.active{border-color:var(--gold);}
+  .fav-btn.active svg{fill:var(--gold);stroke:var(--gold);}
+  .card-body{padding:18px;}
+  .card-cat{font-size:.7rem;color:var(--gold-deep);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+  .card-title{font-size:1.02rem;margin-bottom:10px;font-family:'Tajawal';font-weight:500;}
+  .price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;}
+  .price{font-size:1.15rem;color:var(--gold-light);font-weight:700;}
+  .price-old{font-size:.85rem;color:var(--muted);text-decoration:line-through;}
+  .add-btn{
+    width:100%;padding:10px;border:1px solid var(--gold);font-size:.82rem;letter-spacing:.5px;
+    display:flex;align-items:center;justify-content:center;gap:8px;transition:.3s;color:var(--gold-light);
+  }
+  .add-btn:hover{background:var(--gold);color:var(--black);}
+  .add-btn svg{width:14px;height:14px;}
+
+  /* ---------- about strip ---------- */
+  .strip{background:var(--black3);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .strip .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center;}
+  .strip .item svg{width:34px;height:34px;stroke:var(--gold);margin:0 auto 14px;}
+  .strip .item h3{font-family:'Tajawal';font-weight:700;font-size:1rem;margin-bottom:6px;}
+  .strip .item p{color:var(--muted);font-size:.85rem;line-height:1.8;}
+
+  /* ---------- contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;max-width:760px;margin:0 auto;}
+  .contact-card{
+    border:1px solid var(--line);padding:26px 18px;text-align:center;transition:.3s;
+  }
+  .contact-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+  .contact-card svg{width:26px;height:26px;stroke:var(--gold-light);margin:0 auto 12px;}
+  .contact-card span{display:block;font-size:.85rem;color:var(--muted);}
+
+  footer{padding:40px 0 30px;text-align:center;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);}
+  footer .brand{justify-content:center;margin-bottom:14px;}
+  footer .note{max-width:520px;margin:14px auto 0;line-height:1.9;font-size:.78rem;opacity:.8;}
+
+  /* ---------- cart drawer ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .35s;z-index:200;}
+  .overlay.open{opacity:1;pointer-events:auto;}
+  .drawer{
+    position:fixed;top:0;inset-inline-end:0;height:100%;width:min(400px,92vw);
+    background:var(--black2);border-inline-start:1px solid var(--line);z-index:201;
+    transform:translateX(var(--off,110%));transition:transform .4s cubic-bezier(.7,0,.2,1);
+    display:flex;flex-direction:column;
+  }
+  html[dir="rtl"] .drawer{--off:110%;}
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{padding:22px 22px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+  .drawer-head h3{font-size:1.3rem;}
+  .drawer-items{flex:1;overflow-y:auto;padding:18px 22px;display:flex;flex-direction:column;gap:16px;}
+  .cart-empty{text-align:center;color:var(--muted);padding:60px 10px;font-size:.9rem;}
+  .cart-line{display:flex;gap:14px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;}
+  .cart-line .thumb{width:56px;height:56px;background:var(--black3);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .cart-line .thumb svg{width:28px;height:28px;stroke:var(--gold-light);}
+  .cart-line .info{flex:1;}
+  .cart-line .info h4{font-size:.88rem;font-weight:500;margin-bottom:6px;}
+  .qty-row{display:flex;align-items:center;gap:10px;}
+  .qty-row button{width:22px;height:22px;border:1px solid var(--line);font-size:.85rem;display:flex;align-items:center;justify-content:center;}
+  .qty-row button:hover{border-color:var(--gold);}
+  .cart-line .price{font-size:.85rem;}
+  .remove-x{color:var(--muted);font-size:.75rem;text-decoration:underline;margin-inline-start:auto;}
+  .drawer-foot{padding:20px 22px 26px;border-top:1px solid var(--line);}
+  .total-row{display:flex;justify-content:space-between;margin-bottom:16px;font-size:1rem;}
+  .total-row strong{color:var(--gold-light);font-size:1.2rem;}
+
+  /* ---------- modal ---------- */
+  .modal{
+    position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .3s;padding:20px;
+  }
+  .modal.open{opacity:1;pointer-events:auto;}
+  .modal-bg{position:absolute;inset:0;background:rgba(0,0,0,.7);}
+  .modal-box{
+    position:relative;background:var(--black2);border:1px solid var(--gold);max-width:440px;width:100%;
+    padding:32px 28px;max-height:90vh;overflow-y:auto;
+  }
+  .modal-box h3{font-size:1.5rem;margin-bottom:6px;}
+  .modal-box p.sub{color:var(--muted);font-size:.85rem;margin-bottom:22px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:6px;}
+  .field input,.field textarea{
+    width:100%;background:var(--black);border:1px solid var(--line);color:var(--ivory);
+    padding:11px 12px;font-family:inherit;font-size:.9rem;
+  }
+  .field input:focus,.field textarea:focus{border-color:var(--gold);}
+  .modal-close{position:absolute;top:16px;inset-inline-end:16px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;}
+  .modal-close svg{width:16px;height:16px;stroke:var(--muted);}
+  .confirm-box{text-align:center;padding:10px 0;}
+  .confirm-box svg{width:50px;height:50px;stroke:var(--gold);margin:0 auto 18px;}
+
+  @media(max-width:900px){
+    nav.links{position:fixed;top:70px;right:0;left:0;background:var(--black);flex-direction:column;padding:20px 24px;gap:0;border-bottom:1px solid var(--line);transform:translateY(-140%);transition:transform .35s;}
+    nav.links.open{transform:translateY(0);}
+    nav.links a{padding:14px 0;border-bottom:1px solid var(--line);}
+    .menu-toggle{display:flex;}
+    .strip .grid3{grid-template-columns:1fr;gap:36px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="nav-inner">
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <div class="brand">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#c6a15b" stroke-width="1.4">
+        <circle cx="20" cy="20" r="15"/><circle cx="20" cy="20" r="10.5"/>
+        <circle cx="20" cy="5" r="1.6" fill="#c6a15b"/><circle cx="35" cy="20" r="1.6" fill="#c6a15b"/>
+      </svg>
+      <span>أساور</span>
+    </div>
+    <nav class="links" id="navLinks">
+      <a href="#home" class="active">الرئيسية</a>
+      <a href="#shop">تسوّقي</a>
+      <a href="#about">من نحن</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="favToggle" aria-label="المفضلة">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s-7.5-4.9-10-9.3C0.5 8 2 4.5 5.6 4c2.1-.3 3.9.8 6.4 3.4C14.5 4.8 16.3 3.7 18.4 4c3.6.5 5.1 4 3.6 7.7C19.5 16.1 12 21 12 21z"/></svg>
+      </button>
+      <button class="icon-btn" id="cartToggle" aria-label="السلة">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-rings" aria-hidden="true">
+    <svg viewBox="0 0 600 600" fill="none">
+      <g class="ring-rotate" stroke="#c6a15b" stroke-opacity=".55" stroke-width="1">
+        <circle cx="300" cy="300" r="240"/>
+        <circle cx="300" cy="60" r="5" fill="#c6a15b" stroke="none"/>
+        <circle cx="540" cy="300" r="5" fill="#c6a15b" stroke="none"/>
+        <circle cx="300" cy="540" r="5" fill="#c6a15b" stroke="none"/>
+        <circle cx="60" cy="300" r="5" fill="#c6a15b" stroke="none"/>
+      </g>
+      <g class="ring-rotate-rev" stroke="#e8cf9a" stroke-opacity=".3" stroke-width="1">
+        <circle cx="300" cy="300" r="180"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-content wrap">
+    <span class="eyebrow">Aswar — Perfumes · Gifts · Accessories</span>
+    <h1>أ<span>سا</span>ور</h1>
+    <p class="hero-tag">حيث تلتقي رائحة العطر الفاخر بلمعة السوار الذهبي. تشكيلة مختارة من العطور والهدايا والإكسسوارات ومستحضرات التجميل، لكل لحظة تستحق التميّز.</p>
+    <div class="hero-actions">
+      <a href="#shop" class="btn btn-gold">تسوّقي المجموعة</a>
+      <a href="#about" class="btn btn-outline">تعرّفي على أساور</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFFERS RIBBON ============ -->
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track">
+    <span>✦ شحن مجاني للطلبات فوق 200 ر.س</span>
+    <span>✦ خصم 20% على العطور الشرقية هذا الأسبوع</span>
+    <span>✦ تغليف هدايا فاخر مجاناً</span>
+    <span>✦ استبدال واسترجاع خلال 7 أيام</span>
+    <span>✦ شحن مجاني للطلبات فوق 200 ر.س</span>
+    <span>✦ خصم 20% على العطور الشرقية هذا الأسبوع</span>
+    <span>✦ تغليف هدايا فاخر مجاناً</span>
+    <span>✦ استبدال واسترجاع خلال 7 أيام</span>
+  </div>
+</div>
+
+<!-- ============ SHOP ============ -->
+<section id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow display">تصفّحي حسب القسم</span>
+      <h2>الأقسام الرئيسية</h2>
+      <p>اختاري القسم لعرض المنتجات المتوفرة فيه</p>
+    </div>
+
+    <div class="cat-tabs" id="catTabs"></div>
+    <div class="subcat-row" id="subcatRow"></div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<div class="ring-divider" aria-hidden="true">
+  <div class="bar" style="--dir:right"></div>
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#c6a15b" stroke-width="1"><circle cx="13" cy="13" r="8"/><circle cx="13" cy="13" r="3"/></svg>
+  <div class="bar" style="--dir:left"></div>
+</div>
+
+<!-- ============ ABOUT / STRIP ============ -->
+<section id="about" class="strip">
+  <div class="wrap grid3">
+    <div class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M12 2l2.6 6.6L21 11l-6.4 2.4L12 20l-2.6-6.6L3 11l6.4-2.4L12 2z"/></svg>
+      <h3>جودة مختارة بعناية</h3>
+      <p>كل قطعة في أساور تمر باختيار دقيق لضمان الفخامة والجودة التي تستحقينها.</p>
+    </div>
+    <div class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 12h18M12 8V4m-4 4a4 4 0 0 1 8 0"/></svg>
+      <h3>تغليف هدايا فاخر</h3>
+      <p>نغلّف كل هدية بلمسة ذهبية أنيقة، جاهزة لتُهدى في أي مناسبة.</p>
+    </div>
+    <div class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      <h3>توصيل سريع وآمن</h3>
+      <p>نوصل طلبك أينما كنتِ، مع متابعة الحالة خطوة بخطوة حتى وصولها إليكِ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow display">نسعد بتواصلكِ</span>
+      <h2>تواصلي معنا</h2>
+      <p>فريقنا جاهز للرد على استفساراتكِ ومساعدتكِ في اختيار هديتكِ المثالية</p>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" href="https://wa.me/966500000000" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M21 11.5a8.5 8.5 0 1 1-3.8-7.1L21 3l-1 3.6A8.46 8.46 0 0 1 21 11.5z"/></svg>
+        واتساب
+      </a>
+      <a class="contact-card" href="tel:+966500000000">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.1 2.4z"/></svg>
+        اتصلي بنا
+      </a>
+      <a class="contact-card" href="https://instagram.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        إنستغرام
+      </a>
+      <a class="contact-card" href="https://facebook.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M17 3h-3a4 4 0 0 0-4 4v3H7v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        فيسبوك
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#c6a15b" stroke-width="1.4" style="width:24px;height:24px;">
+        <circle cx="20" cy="20" r="15"/><circle cx="20" cy="20" r="10.5"/>
+      </svg>
+      <span>أساور</span>
+    </div>
+    <p>© 2026 أساور للعطور والهدايا والإكسسوارات. جميع الحقوق محفوظة.</p>
+    <p class="note">هذا نموذج واجهة أمامية تفاعلية لعرض شكل المتجر. الأزرار الاجتماعية وأرقام التواصل أعلاه أرقام تجريبية يجب استبدالها ببياناتكم الفعلية، وربط الطلبات بقاعدة بيانات ولوحة تحكم حقيقية يتطلب تطوير نظام خلفي (Backend) منفصل.</p>
+  </div>
+</footer>
+
+<!-- ============ CART OVERLAY + DRAWER ============ -->
+<div class="overlay" id="overlay"></div>
+<div class="drawer" id="cartDrawer" role="dialog" aria-label="سلة المشتريات">
+  <div class="drawer-head">
+    <h3>سلة المشتريات</h3>
+    <button class="icon-btn" id="closeCart" aria-label="إغلاق"><svg viewBox="0 0 24 24" fill="none" stroke="#f4eee0" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>الإجمالي</span><strong id="cartTotal">0 ر.س</strong></div>
+    <button class="btn btn-gold" style="width:100%" id="checkoutBtn">إتمام الطلب</button>
+  </div>
+</div>
+
+<!-- ============ CHECKOUT MODAL ============ -->
+<div class="modal" id="checkoutModal">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box">
+    <button class="modal-close" data-close aria-label="إغلاق"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div id="checkoutForm">
+      <h3>إتمام الطلب</h3>
+      <p class="sub">أدخلي بياناتكِ وسنتواصل معكِ لتأكيد الطلب</p>
+      <div class="field"><label>الاسم الكامل</label><input type="text" id="ordName" placeholder="مثال: سارة أحمد"></div>
+      <div class="field"><label>رقم الهاتف</label><input type="tel" id="ordPhone" placeholder="05xxxxxxxx"></div>
+      <div class="field"><label>العنوان</label><input type="text" id="ordAddress" placeholder="المدينة، الحي، الشارع"></div>
+      <div class="field"><label>ملاحظات إضافية (اختياري)</label><textarea id="ordNotes" rows="3" placeholder="مثال: تغليف هدية"></textarea></div>
+      <button class="btn btn-gold" style="width:100%" id="submitOrder">تأكيد الطلب عبر واتساب</button>
+    </div>
+    <div id="checkoutConfirm" style="display:none">
+      <div class="confirm-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M20 6L9 17l-5-5"/></svg>
+        <h3>تم إرسال طلبكِ</h3>
+        <p class="sub">سيتم فتح واتساب لإرسال تفاصيل طلبكِ لفريقنا، وسنتواصل معكِ لتأكيده.</p>
+        <button class="btn btn-outline" data-close style="width:100%">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ======================= ICONS ======================= */
+const ICONS = {
+  perfume: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M10 2h4v3h-4z"/><path d="M9 5h6l1 3v12a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V8z"/><path d="M9 12h6"/></svg>`,
+  bracelet: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="4" r="1.3"/><circle cx="20" cy="12" r="1.3"/><circle cx="12" cy="20" r="1.3"/><circle cx="4" cy="12" r="1.3"/></svg>`,
+  watch: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><circle cx="12" cy="12" r="6.5"/><path d="M12 9v3l2 1.4M9 2h6M9 22h6"/></svg>`,
+  gift: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 12h18M12 8V4m-4 4a4 4 0 0 1 8 0"/></svg>`,
+  makeup: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="9" y="2" width="6" height="7" rx="1"/><path d="M10 9l-1 11a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2L14 9"/></svg>`,
+  ring: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><circle cx="12" cy="15" r="6"/><path d="M9 9l3-6 3 6"/></svg>`
+};
+
+/* ======================= DATA ======================= */
+const CATEGORIES = [
+  {id:'perfume', label:'العطور', icon:'perfume', subs:['رجالية','نسائية','شرقية','فرنسية']},
+  {id:'gifts', label:'الهدايا', icon:'gift', subs:['مناسبات','تخرج','أعياد ميلاد']},
+  {id:'accessories', label:'الإكسسوارات', icon:'bracelet', subs:['أساور','ساعات','خواتم','سلاسل']},
+  {id:'beauty', label:'التجميل', icon:'makeup', subs:['مكياج','عناية بالبشرة','عناية بالشعر']}
+];
+
+const PRODUCTS = [
+  {id:1,cat:'perfume',sub:'رجالية',name:'عطر أُود الملوك',price:349,old:420,badge:'الأكثر مبيعاً',icon:'perfume'},
+  {id:2,cat:'perfume',sub:'نسائية',name:'عطر لمسة الياسمين',price:289,old:null,badge:null,icon:'perfume'},
+  {id:3,cat:'perfume',sub:'شرقية',name:'عطر دهن العود الفاخر',price:520,old:600,badge:'-13%',icon:'perfume'},
+  {id:4,cat:'perfume',sub:'فرنسية',name:'عطر باريس الليلي',price:410,old:null,badge:'جديد',icon:'perfume'},
+  {id:5,cat:'gifts',sub:'تخرج',name:'صندوق هدايا التخرج',price:180,old:220,badge:'-18%',icon:'gift'},
+  {id:6,cat:'gifts',sub:'أعياد ميلاد',name:'بوكس هدية عيد الميلاد',price:150,old:null,badge:null,icon:'gift'},
+  {id:7,cat:'gifts',sub:'مناسبات',name:'طقم هدايا المناسبات الخاصة',price:260,old:310,badge:'-16%',icon:'gift'},
+  {id:8,cat:'accessories',sub:'أساور',name:'سوار ذهبي كلاسيك',price:210,old:null,badge:'مميز',icon:'bracelet'},
+  {id:9,cat:'accessories',sub:'ساعات',name:'ساعة يد أنيقة',price:390,old:450,badge:'-13%',icon:'watch'},
+  {id:10,cat:'accessories',sub:'خواتم',name:'خاتم لؤلؤ فاخر',price:175,old:null,badge:null,icon:'ring'},
+  {id:11,cat:'accessories',sub:'سلاسل',name:'سلسال ذهبي رفيع',price:230,old:270,badge:'-15%',icon:'bracelet'},
+  {id:12,cat:'beauty',sub:'مكياج',name:'طقم مكياج فاخر',price:265,old:null,badge:'جديد',icon:'makeup'},
+  {id:13,cat:'beauty',sub:'عناية بالبشرة',name:'روتين العناية بالبشرة',price:195,old:230,badge:'-15%',icon:'makeup'},
+  {id:14,cat:'beauty',sub:'عناية بالشعر',name:'زيت الشعر الذهبي',price:120,old:null,badge:null,icon:'makeup'},
+];
+
+/* ======================= STATE ======================= */
+let activeCat = 'perfume';
+let activeSub = 'الكل';
+let favorites = new Set();
+let cart = {}; // id -> qty
+
+/* ======================= RENDER CATEGORY TABS ======================= */
+const catTabs = document.getElementById('catTabs');
+CATEGORIES.forEach(c=>{
+  const btn = document.createElement('button');
+  btn.className = 'cat-tab' + (c.id===activeCat ? ' active':'');
+  btn.dataset.cat = c.id;
+  btn.innerHTML = `<div class="ring">${ICONS[c.icon]}</div><span>${c.label}</span>`;
+  btn.addEventListener('click', ()=>{ activeCat = c.id; activeSub='الكل'; renderAll(); });
+  catTabs.appendChild(btn);
+});
+
+function renderSubcats(){
+  const row = document.getElementById('subcatRow');
+  row.innerHTML = '';
+  const cat = CATEGORIES.find(c=>c.id===activeCat);
+  const subs = ['الكل', ...cat.subs];
+  subs.forEach(s=>{
+    const chip = document.createElement('button');
+    chip.className = 'subcat-chip' + (s===activeSub ? ' active':'');
+    chip.textContent = s;
+    chip.addEventListener('click', ()=>{ activeSub = s; renderAll(); });
+    row.appendChild(chip);
+  });
+}
+
+function renderProducts(){
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = '';
+  const items = PRODUCTS.filter(p => p.cat===activeCat && (activeSub==='الكل' || p.sub===activeSub));
+  if(items.length===0){
+    grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0;">لا توجد منتجات في هذا القسم حالياً</p>`;
+    return;
+  }
+  items.forEach(p=>{
+    const card = document.createElement('div');
+    card.className = 'card';
+    const isFav = favorites.has(p.id);
+    card.innerHTML = `
+      <div class="card-media">
+        ${p.badge ? `<span class="badge">${p.badge}</span>`:''}
+        <button class="fav-btn ${isFav?'active':''}" data-fav="${p.id}" aria-label="أضيفي للمفضلة">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s-7.5-4.9-10-9.3C0.5 8 2 4.5 5.6 4c2.1-.3 3.9.8 6.4 3.4C14.5 4.8 16.3 3.7 18.4 4c3.6.5 5.1 4 3.6 7.7C19.5 16.1 12 21 12 21z"/></svg>
+        </button>
+        ${ICONS[p.icon]}
+      </div>
+      <div class="card-body">
+        <div class="card-cat">${p.sub}</div>
+        <div class="card-title">${p.name}</div>
+        <div class="price-row">
+          <span class="price">${p.price} ر.س</span>
+          ${p.old ? `<span class="price-old">${p.old} ر.س</span>`:''}
+        </div>
+        <button class="add-btn" data-add="${p.id}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/></svg>
+          أضيفي للسلة
+        </button>
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  grid.querySelectorAll('[data-add]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = Number(btn.dataset.add);
+      cart[id] = (cart[id]||0) + 1;
+      renderCart();
+      openCart();
+    });
+  });
+  grid.querySelectorAll('[data-fav]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = Number(btn.dataset.fav);
+      favorites.has(id) ? favorites.delete(id) : favorites.add(id);
+      renderProducts();
+    });
+  });
+}
+
+function renderAll(){
+  document.querySelectorAll('.cat-tab').forEach(b=> b.classList.toggle('active', b.dataset.cat===activeCat));
+  renderSubcats();
+  renderProducts();
+}
+
+/* ======================= CART ======================= */
+const overlay = document.getElementById('overlay');
+const drawer = document.getElementById('cartDrawer');
+function openCart(){ overlay.classList.add('open'); drawer.classList.add('open'); }
+function closeCartFn(){ overlay.classList.remove('open'); drawer.classList.remove('open'); }
+document.getElementById('cartToggle').addEventListener('click', openCart);
+document.getElementById('closeCart').addEventListener('click', closeCartFn);
+overlay.addEventListener('click', closeCartFn);
+
+function renderCart(){
+  const wrap = document.getElementById('cartItems');
+  const ids = Object.keys(cart).filter(id=>cart[id]>0);
+  const count = ids.reduce((s,id)=>s+cart[id],0);
+  document.getElementById('cartCount').textContent = count;
+
+  if(ids.length===0){
+    wrap.innerHTML = `<div class="cart-empty">سلتكِ فارغة حالياً<br>ابدئي بإضافة منتج تحبينه ✦</div>`;
+    document.getElementById('cartTotal').textContent = '0 ر.س';
+    return;
+  }
+  let total = 0;
+  wrap.innerHTML = ids.map(id=>{
+    const p = PRODUCTS.find(x=>x.id===Number(id));
+    const qty = cart[id];
+    total += p.price*qty;
+    return `
+    <div class="cart-line">
+      <div class="thumb">${ICONS[p.icon]}</div>
+      <div class="info">
+        <h4>${p.name}</h4>
+        <div class="qty-row">
+          <button data-dec="${id}">−</button>
+          <span>${qty}</span>
+          <button data-inc="${id}">+</button>
+          <span class="price">${p.price*qty} ر.س</span>
+        </div>
+      </div>
+      <button class="remove-x" data-rm="${id}">حذف</button>
+    </div>`;
+  }).join('');
+  document.getElementById('cartTotal').textContent = total + ' ر.س';
+
+  wrap.querySelectorAll('[data-inc]').forEach(b=>b.addEventListener('click',()=>{cart[b.dataset.inc]++;renderCart();}));
+  wrap.querySelectorAll('[data-dec]').forEach(b=>b.addEventListener('click',()=>{
+    const id=b.dataset.dec; cart[id] = Math.max(0,cart[id]-1); renderCart();
+  }));
+  wrap.querySelectorAll('[data-rm]').forEach(b=>b.addEventListener('click',()=>{
+    delete cart[b.dataset.rm]; renderCart();
+  }));
+}
+
+/* ======================= CHECKOUT MODAL ======================= */
+const checkoutModal = document.getElementById('checkoutModal');
+document.getElementById('checkoutBtn').addEventListener('click', ()=>{
+  const ids = Object.keys(cart).filter(id=>cart[id]>0);
+  if(ids.length===0) return;
+  document.getElementById('checkoutForm').style.display='block';
+  document.getElementById('checkoutConfirm').style.display='none';
+  checkoutModal.classList.add('open');
+});
+checkoutModal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click', ()=>{
+  checkoutModal.classList.remove('open');
+}));
+
+document.getElementById('submitOrder').addEventListener('click', ()=>{
+  const name = document.getElementById('ordName').value.trim();
+  const phone = document.getElementById('ordPhone').value.trim();
+  const address = document.getElementById('ordAddress').value.trim();
+  const notes = document.getElementById('ordNotes').value.trim();
+  if(!name || !phone || !address){
+    alert('يرجى تعبئة الاسم ورقم الهاتف والعنوان لإتمام الطلب');
+    return;
+  }
+  const ids = Object.keys(cart).filter(id=>cart[id]>0);
+  let total = 0;
+  const lines = ids.map(id=>{
+    const p = PRODUCTS.find(x=>x.id===Number(id));
+    const qty = cart[id];
+    total += p.price*qty;
+    return `- ${p.name} × ${qty} = ${p.price*qty} ر.س`;
+  }).join('\n');
+
+  const message = `طلب جديد من متجر أساور\n\nالاسم: ${name}\nالهاتف: ${phone}\nالعنوان: ${address}\nملاحظات: ${notes||'-'}\n\nالمنتجات:\n${lines}\n\nالإجمالي: ${total} ر.س`;
+  const url = `https://wa.me/966500000000?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+
+  document.getElementById('checkoutForm').style.display='none';
+  document.getElementById('checkoutConfirm').style.display='block';
+  cart = {};
+  renderCart();
+});
+
+/* ======================= MOBILE MENU ======================= */
+document.getElementById('menuToggle').addEventListener('click', ()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('nav.links a').forEach(a=>a.addEventListener('click', ()=>{
+  document.getElementById('navLinks').classList.remove('open');
+}));
+
+/* ======================= INIT ======================= */
+renderAll();
+renderCart();
+</script>
+</body>
+</html>
